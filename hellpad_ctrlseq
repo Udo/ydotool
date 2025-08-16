@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+MOD_MS=${MOD_MS:-120}   # wait after Ctrl down (ms)
+PER_MS=${PER_MS:-85}    # wait between taps (ms)
+POST_MS=${POST_MS:-120} # keep Ctrl after last tap (ms)
+
+msleep() {                  # sleep for N milliseconds using GNU sleep
+  local ms=$1 s r
+  s=$((ms/1000)); r=$((ms%1000))
+  sleep "${s}.$(printf '%03d' "$r")"
+}
+
+to_code(){ case "$1" in
+  w) echo 17;; a) echo 30;; s) echo 31;; d) echo 32;;
+  up) echo 103;; left) echo 105;; right) echo 106;; down) echo 108;;
+  *) echo "bad token: $1" >&2; exit 2;; esac; }
+
+ydotool key 29:1
+msleep "$PER_MS"
+
+echo "CODE: $@" >> /var/log/hellpad.log
+
+for k in "$@"; do
+  /usr/local/bin/ydotool key "$(to_code "$k")":1 
+	# 2>&1 >> /var/log/hellpad.log
+  #echo "    $k: key #$(to_code "$k")" >> /var/log/hellpad.log
+  msleep "$PER_MS"
+  /usr/local/bin/ydotool key "$(to_code "$k")":0 
+	# 2>&1 >> /var/log/hellpad.log
+  msleep "$POST_MS"
+done
+
+ydotool key 29:0
