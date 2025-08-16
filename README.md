@@ -1,4 +1,4 @@
-# ydotool
+# ydotool + keyd = HELLPAD!
 
 Generic Linux command-line automation tool
 
