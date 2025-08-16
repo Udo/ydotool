@@ -45,7 +45,7 @@ cd ..
 
 # verify service is running:
 systemctl status ydotoold
-```
+```bash
 
 - look at the log while you press keys to verify it's working
 ```
