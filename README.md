@@ -28,27 +28,25 @@ systemctl restart keyd
 journalctl -n 1000 | grep keyd
 ```
 - compile `ydotool` (distro repo one probably doesn't work, gotta do this one manually)
-	- install prerequisites:
 ```
+# install prerequisite
 apt install scdoc
-```
-	- build `ydotool`
-```
+
+# build ydotool
 mkdir build
 cd build
 cmake ..
 make -j `nproc`
 make install
 cd ..
-```
-- install as a service:
-```
+
+# install as a service:
 ./install-service
-```
-- verify service is running:
-```
+
+# verify service is running:
 systemctl status ydotoold
 ```
+
 - look at the log while you press keys to verify it's working
 ```
 tail -f /var/log/hellpad.log
