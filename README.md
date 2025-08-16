@@ -6,6 +6,8 @@ Generic Linux command-line automation tool
 + bash script that generates the sequences: `hellpad_ctrlseq`
 + `ydotool` itself unmodified here from mainline
 
+![Hellpad](./macropad.jpg?raw=true)
+
 # How this works
 
 - keyd listens to key strokes from specific device, as defined in `etc/keyd/hellpad.conf`
