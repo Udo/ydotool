@@ -2,9 +2,9 @@
 
 Generic Linux command-line automation tool
 
-+ keyd configuration for Helldivers II stratagems `etc/keyd/hellpad.conf`
-
-+ bash script that generates the sequences `hellpad_ctrlseq`
++ keyd configuration for Helldivers II stratagems: `etc/keyd/hellpad.conf`
++ bash script that generates the sequences: `hellpad_ctrlseq`
++ `ydotool` itself unmodified here from mainline
 
 # How this works
 
