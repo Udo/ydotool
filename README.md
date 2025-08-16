@@ -24,6 +24,10 @@ Generic Linux command-line automation tool
 keyd.rvaiya monitor
 ```
 - edit `etc/keyd/hellpad.conf` and replace placeholder with your device ID
+- copy event handler file to a convenient location:
+```bash
+sudo cp hellpad_ctrlseq /usr/local/bin/
+```
 - restart keyd and look at syslog for errors
 ```bash
 systemctl restart keyd
