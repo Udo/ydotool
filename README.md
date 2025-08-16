@@ -18,17 +18,17 @@ Generic Linux command-line automation tool
 - install `keyd` from distro repo
 - copy example `etc/keyd/hellpad.conf` from this repo to your `etc/keyd/`
 - get your macro keyboard device ID by pressing some keys (device ID will look like this: 258a:1006:e656605b)
-```
+```bash
 keyd.rvaiya monitor
 ```
 - edit `etc/keyd/hellpad.conf` and replace placeholder with your device ID
 - restart keyd and look at syslog for errors
-```
+```bash
 systemctl restart keyd
 journalctl -n 1000 | grep keyd
 ```
 - compile `ydotool` (distro repo one probably doesn't work, gotta do this one manually)
-```
+```bash
 # install prerequisite
 apt install scdoc
 
@@ -45,9 +45,9 @@ cd ..
 
 # verify service is running:
 systemctl status ydotoold
-```bash
+```
 
 - look at the log while you press keys to verify it's working
-```
+```bash
 tail -f /var/log/hellpad.log
 ```
